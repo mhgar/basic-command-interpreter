@@ -9,8 +9,8 @@ int (f*)(int, int) = &add;
 int res = *f(1, 2);
 
 C++:
-auto f { std::bind(add) };  // returns std::function<int(int, int)>
-auto res { f(1, 2) };       // returns int
+auto f { add };  // returns std::function<int(int, int)> (but it doesn't matter!)
+auto res { f(1, 2) };
 
 C#:
 delegate int AddDelegate(int, int);
