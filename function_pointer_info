@@ -1,0 +1,44 @@
+Our add function:
+int add(int a, int, b) { return a + b; }
+
+Params:
+1 and 2
+
+C:
+int (f*)(int, int) = &add;
+int res = *f(1, 2);
+
+C++:
+auto f { std::bind(add) };  // returns std::function<int(int, int)>
+auto res { f(1, 2) };       // returns int
+
+C#:
+delegate int AddDelegate(int, int);
+AddDelegate f = add;
+int res = f(1, 2);
+
+C++ and C# lambdas:
+auto f = [&](a, b) { return a + b; };
+AddDelegate f = (a, b) => return a + b; // Type cannot be infered :c
+int res = f(1, 2);
+
+Java:
+// Somewhere else
+interface<T> AddFunctor
+{
+    T invoke(T, T);
+}
+
+AddFunctor<int> f = (a, b) -> return add(a, b); // can be non-static    
+int res = f.invoke(1, 2);    
+
+So what is AddFunctor?
+AddFunctor represents the blueprint for an anonymous class derived from the
+interface. It is similar to a delegate type except worse.
+
+You can also use:
+AddFunctor<int> f = return CLASS::add;
+Provided that the add function inside class is a static method and shares
+the correct function signature.
+
+Ironically C++ is the simplest here.
