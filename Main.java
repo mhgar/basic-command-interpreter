@@ -13,10 +13,10 @@ public class Main
     {
         CommandLine cl = new CommandLine();
         
-        Command cmd1 = new Command("print", (Command c) -> print(c));
+        Command cmd1 = new Command("print", c -> print(c));
         Command cmd2 = new Command("turnip", (Command c) -> printReverse(c));
-        Command cmd3 = new Command("help", (Command c) -> printCommands(c));
-        Command cmd4 = new Command("sort", (Command c) -> sort(c));
+        Command cmd3 = new Command("help", Main::printCommands);
+        Command cmd4 = new Command("sort", Main::sort);
         
         cl.register(cmd1);
         cl.register(cmd2);
