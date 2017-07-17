@@ -14,7 +14,7 @@ public class Main
         CommandLine cl = new CommandLine();
         
         Command cmd1 = new Command("print", c -> print(c));
-        Command cmd2 = new Command("turnip", (Command c) -> printReverse(c));
+        Command cmd2 = new Command("turnip", Main::printReverse);
         Command cmd3 = new Command("help", Main::printCommands);
         Command cmd4 = new Command("sort", Main::sort);
         
