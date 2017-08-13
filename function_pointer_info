@@ -1,3 +1,5 @@
+I wrote this for someone who was learning but figurered it was good enough to include.
+
 Our add function:
 int add(int a, int, b) { return a + b; }
 
